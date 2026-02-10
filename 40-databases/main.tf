@@ -18,8 +18,8 @@ resource "terraform_data" "mongodb" {
   ]
 
   provisioner "file" {
-    source      = "bootstrap.sh"
-    destination = "/tmp/bootstrap.sh"
+    source      = "database.sh"
+    destination = "/tmp/database.sh"
   }
 
   connection {
@@ -31,8 +31,8 @@ resource "terraform_data" "mongodb" {
 
   provisioner "remote-exec" {
     inline = [
-      "chmod +x /tmp/bootstrap.sh",
-      "sudo sh /tmp/bootstrap.sh mongodb ${var.environment}"
+      "chmod +x /tmp/database.sh",
+      "sudo sh /tmp/database.sh mongodb"
     ]
   }
 }
@@ -57,8 +57,8 @@ resource "terraform_data" "redis" {
   ]
 
   provisioner "file" {
-    source      = "bootstrap.sh"
-    destination = "/tmp/bootstrap.sh"
+    source      = "database.sh"
+    destination = "/tmp/database.sh"
   }
 
   connection {
@@ -70,8 +70,8 @@ resource "terraform_data" "redis" {
 
   provisioner "remote-exec" {
     inline = [
-      "chmod +x /tmp/bootstrap.sh",
-      "sudo sh /tmp/bootstrap.sh redis ${var.environment}"
+      "chmod +x /tmp/database.sh",
+      "sudo sh /tmp/database.sh redis"
     ]
   }
 }
@@ -96,8 +96,8 @@ resource "terraform_data" "mysql" {
   ]
 
   provisioner "file" {
-    source      = "bootstrap.sh"
-    destination = "/tmp/bootstrap.sh"
+    source      = "database.sh"
+    destination = "/tmp/database.sh"
   }
 
   connection {
@@ -109,8 +109,8 @@ resource "terraform_data" "mysql" {
 
   provisioner "remote-exec" {
     inline = [
-      "chmod +x /tmp/bootstrap.sh",
-      "sudo sh /tmp/bootstrap.sh mysql ${var.environment}"
+      "chmod +x /tmp/database.sh",
+      "sudo sh /tmp/database.sh mysql"
     ]
   }
 }
@@ -135,8 +135,8 @@ resource "terraform_data" "rabbitmq" {
   ]
 
   provisioner "file" {
-    source      = "bootstrap.sh"
-    destination = "/tmp/bootstrap.sh"
+    source      = "database.sh"
+    destination = "/tmp/database.sh"
   }
 
   connection {
@@ -148,8 +148,8 @@ resource "terraform_data" "rabbitmq" {
 
   provisioner "remote-exec" {
     inline = [
-      "chmod +x /tmp/bootstrap.sh",
-      "sudo sh /tmp/bootstrap.sh rabbitmq ${var.environment}"
+      "chmod +x /tmp/database.sh",
+      "sudo sh /tmp/database.sh rabbitmq"
     ]
   }
 }
