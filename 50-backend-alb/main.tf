@@ -13,6 +13,7 @@ module "backend_alb" {
     local.common_tags,
     {
         Name = "${var.project}-${var.environment}-backend-alb"
+        overwrite = true
     }
   )
 }
