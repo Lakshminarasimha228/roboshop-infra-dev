@@ -2,7 +2,7 @@ module "frontend_alb" {
   source = "terraform-aws-modules/alb/aws"
   version = "10.5.0"
   internal = false
-  name    = "${var.project}-${var.environment}-frontend_alb" #roboshop-dev-frontend_alb
+  name    = "${var.project}-${var.environment}-frontend-alb" #roboshop-dev-frontend_alb
   vpc_id  = local.vpc_id
   #subnets = local.private_subnet_ids
   subnets = local.public_subnet_ids
@@ -12,7 +12,7 @@ module "frontend_alb" {
   tags = merge(
     local.common_tags,
     {
-        Name = "${var.project}-${var.environment}-frontend_alb"
+        Name = "${var.project}-${var.environment}-frontend-alb"
     }
   )
 }
